@@ -28,47 +28,70 @@
       //   Sample output:
 
       //       //   Total Toyota cars: 2
-      //       const cars = [
-      //         { make: "Toyota", model: "Camry" },
-      //         { make: "Honda", model: "Civic" },
-      //         { make: "Toyota", model: "Corolla" },
-      //         { make: "Ford", model: "Focus" },
-      //       ];
+      const cars = [
+        { make: "Toyota", model: "Camry" },
+        { make: "Honda", model: "Civic" },
+        { make: "Toyota", model: "Corolla" },
+        { make: "Ford", model: "Focus" },
+      ];
 
-      //       const targetMake = "Toyota";
+      const targetMake = "Toyota";
 
-      //       function countCarsByMake(cars, targetMake) {
-      //         let count = 0;
+      function countCarsByMake(cars, targetMake) {
+        let count = 0;
 
-      //         for (const car of cars) {
-      //           if (car.make === targetMake) {
-      //             count++;
-      //           }
-      //         }
+        for (const car of cars) {
+          if (car.make === targetMake) {
+            count++;
+          }
+        }
 
-      //         return count;
-      //       }
+        return count;
+      }
 
-      //       const totalCount = countCarsByMake(cars, targetMake);
-      //       console.log(`Total ${targetMake} cars: ${totalCount}`);
+      const totalCount = countCarsByMake(cars, targetMake);
+      console.log(`Total ${targetMake} cars: ${totalCount}`);
 
-      //       //   const students = [
+      // 2.You have an array of student objects, each containing a name and a list of course grades. How can you use a Map to calculate the average grade for each student?
+
+      // Sample Input:
+
+      // const students = [
+
       //   { name: "Alice", grades: [85, 90, 78] },
+
       //   { name: "Bob", grades: [92, 88, 95] },
+
       //   { name: "Charlie", grades: [76, 80, 81] }
+
       // ];
 
-      // const studentAverages = new Map();
+      // Sample Output:
 
-      // for (const student of students) {
-      //   const { name, grades } = student;
-      //   const averageGrade = grades.reduce((total, grade) => total + grade, 0) / grades.length;
-      //   studentAverages.set(name, averageGrade.toFixed(2)); // Round to 2 decimal places
-      // }
+      // Alice's Average Grade: 84.33
 
-      // studentAverages.forEach((average, name) => {
-      //   console.log(`${name}'s Average Grade: ${average}`);
-      // });
+      // Bob's Average Grade: 91.67
+
+      // Charlie's Average Grade: 79
+
+      const students = [
+        { name: "Alice", grades: [85, 90, 78] },
+        { name: "Bob", grades: [92, 88, 95] },
+        { name: "Charlie", grades: [76, 80, 81] },
+      ];
+
+      const studentAverages = new Map();
+
+      for (const student of students) {
+        const { name, grades } = student;
+        const averageGrade =
+          grades.reduce((total, grade) => total + grade, 0) / grades.length;
+        studentAverages.set(name, averageGrade.toFixed(2)); // Round to 2 decimal places
+      }
+
+      studentAverages.forEach((average, name) => {
+        console.log(`${name}'s Average Grade: ${average}`);
+      });
 
       //   3.Given an object that represents a user's profile with properties like "name," "email," and "address," how would you update the user's email address if it changes?
 
