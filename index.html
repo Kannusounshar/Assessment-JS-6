@@ -27,52 +27,48 @@
 
       //   Sample output:
 
-      //   Total Toyota cars: 2
-      const cars = [
-        { make: "Toyota", model: "Camry" },
-        { make: "Honda", model: "Civic" },
-        { make: "Toyota", model: "Corolla" },
-        { make: "Ford", model: "Focus" },
-      ];
+      //       //   Total Toyota cars: 2
+      //       const cars = [
+      //         { make: "Toyota", model: "Camry" },
+      //         { make: "Honda", model: "Civic" },
+      //         { make: "Toyota", model: "Corolla" },
+      //         { make: "Ford", model: "Focus" },
+      //       ];
 
-      const targetMake = "Toyota";
+      //       const targetMake = "Toyota";
 
-      function countCarsByMake(cars, targetMake) {
-        let count = 0;
+      //       function countCarsByMake(cars, targetMake) {
+      //         let count = 0;
 
-        for (const car of cars) {
-          if (car.make === targetMake) {
-            count++;
-          }
-        }
+      //         for (const car of cars) {
+      //           if (car.make === targetMake) {
+      //             count++;
+      //           }
+      //         }
 
-        return count;
-      }
+      //         return count;
+      //       }
 
-      const totalCount = countCarsByMake(cars, targetMake);
-      console.log(`Total ${targetMake} cars: ${totalCount}`);
+      //       const totalCount = countCarsByMake(cars, targetMake);
+      //       console.log(`Total ${targetMake} cars: ${totalCount}`);
 
-      //   2.You have an array of student objects, each containing a name and a list of course grades. How can you use a Map to calculate the average grade for each student?
+      //       //   const students = [
+      //   { name: "Alice", grades: [85, 90, 78] },
+      //   { name: "Bob", grades: [92, 88, 95] },
+      //   { name: "Charlie", grades: [76, 80, 81] }
+      // ];
 
-      //   Sample Input:
+      // const studentAverages = new Map();
 
-      //   const students = [
+      // for (const student of students) {
+      //   const { name, grades } = student;
+      //   const averageGrade = grades.reduce((total, grade) => total + grade, 0) / grades.length;
+      //   studentAverages.set(name, averageGrade.toFixed(2)); // Round to 2 decimal places
+      // }
 
-      //     { name: "Alice", grades: [85, 90, 78] },
-
-      //     { name: "Bob", grades: [92, 88, 95] },
-
-      //     { name: "Charlie", grades: [76, 80, 81] }
-
-      //   ];
-
-      //   Sample Output:
-
-      //   Alice's Average Grade: 84.33
-
-      //   Bob's Average Grade: 91.67
-
-      //   Charlie's Average Grade: 79
+      // studentAverages.forEach((average, name) => {
+      //   console.log(`${name}'s Average Grade: ${average}`);
+      // });
 
       //   3.Given an object that represents a user's profile with properties like "name," "email," and "address," how would you update the user's email address if it changes?
 
@@ -103,6 +99,20 @@
       //     address: "123 Main St"
 
       //   }
+      const userProfile = {
+        name: "John Doe",
+        email: "john@example.com",
+        address: "123 Main St",
+      };
+
+      const newEmail = "john.doe@newemail.com";
+
+      // Update the user's email address
+      userProfile.email = newEmail;
+
+      // Print the updated user profile
+      console.log("Updated User Profile:");
+      console.log(userProfile);
 
       //   4.You have an array of objects representing products, each with properties like "name," "price," and "category." How can you filter the products to get a list of items that are under a certain price threshold?
 
@@ -133,6 +143,23 @@
       //     { name: "Shirt", price: 25, category: "Clothing" }
 
       //   ]
+      const products = [
+        { name: "Laptop", price: 999, category: "Electronics" },
+        { name: "Book", price: 10, category: "Books" },
+        { name: "Phone", price: 699, category: "Electronics" },
+        { name: "Shirt", price: 25, category: "Clothing" },
+      ];
+
+      const priceThreshold = 500;
+
+      // Use the filter method to get products under the price threshold
+      const productsUnderThreshold = products.filter(
+        (product) => product.price < priceThreshold
+      );
+
+      // Print the filtered list of products
+      console.log("Products under $" + priceThreshold + ":");
+      console.log(productsUnderThreshold);
 
       //   5.You have an array of sales transactions, each represented as an object with properties like "product," "quantity," and "price." How would you calculate the total revenue generated from these transactions?
 
@@ -151,6 +178,27 @@
       //   Sample Output:
 
       //   Total Revenue: $7,193
+      const sales = [
+        { product: "Laptop", quantity: 2, price: 999 },
+        { product: "Phone", quantity: 3, price: 699 },
+        { product: "Tablet", quantity: 5, price: 299 },
+      ];
+
+      // Initialize a variable to store the total revenue
+      let totalRevenue = 0;
+
+      // Iterate through the sales transactions and calculate revenue
+      for (const sale of sales) {
+        const { quantity, price } = sale;
+        const revenue = quantity * price;
+        totalRevenue += revenue;
+      }
+
+      // Format the total revenue as a currency string
+      const formattedTotalRevenue = "$" + totalRevenue.toLocaleString();
+
+      // Print the total revenue
+      console.log("Total Revenue: " + formattedTotalRevenue);
 
       //   6.Given a Map of employee names as keys and their corresponding salaries as values, how can you find the employee with the highest salary?
 
@@ -171,6 +219,29 @@
       //   Employee with the Highest Salary:
 
       //   Bob: $60,000
+      const employeeSalaries = new Map([
+        ["Alice", 55000],
+        ["Bob", 60000],
+        ["Charlie", 48000],
+      ]);
+
+      let highestSalaryEmployee = null;
+      let highestSalary = 0;
+
+      // Iterate through the Map to find the employee with the highest salary
+      employeeSalaries.forEach((salary, employeeName) => {
+        if (salary > highestSalary) {
+          highestSalary = salary;
+          highestSalaryEmployee = employeeName;
+        }
+      });
+
+      // Format the highest salary as a currency string
+      const formattedSalary = "$" + highestSalary.toLocaleString();
+
+      // Print the employee with the highest salary
+      console.log("Employee with the Highest Salary:");
+      console.log(highestSalaryEmployee + ": " + formattedSalary);
 
       //   7.You have an object representing a library catalog, with nested arrays of books by genre. How can you retrieve the number of books in a specific genre?
 
@@ -201,6 +272,27 @@
       //   Sample Output:
 
       //   Number of Fiction Books: 2
+      const libraryCatalog = {
+        fiction: [
+          { title: "1984", author: "George Orwell" },
+          { title: "Brave New World", author: "Aldous Huxley" },
+        ],
+        nonFiction: [
+          { title: "Sapiens", author: "Yuval Noah Harari" },
+          { title: "The Selfish Gene", author: "Richard Dawkins" },
+        ],
+      };
+
+      const genre = "fiction";
+
+      // Retrieve the array of books for the specified genre
+      const booksInGenre = libraryCatalog[genre];
+
+      // Calculate the number of books in the genre
+      const numberOfBooks = booksInGenre ? booksInGenre.length : 0;
+
+      // Print the number of books in the genre
+      console.log(`Number of ${genre} Books: ${numberOfBooks}`);
 
       //   8.Given an array of student objects with "name" and "grades" properties, how can you update a specific student's grades based on their name?
 
@@ -233,6 +325,26 @@
       //     { name: "Charlie", grades: [76, 80, 81] }
 
       //   ]
+      const students = [
+        { name: "Alice", grades: [85, 90, 78] },
+        { name: "Bob", grades: [92, 88, 95] },
+        { name: "Charlie", grades: [76, 80, 81] },
+      ];
+
+      const studentNameToUpdate = "Bob";
+      const newGrades = [94, 89, 96];
+
+      // Find the student with the matching name and update their grades
+      for (const student of students) {
+        if (student.name === studentNameToUpdate) {
+          student.grades = newGrades;
+          break; // Exit the loop once the student is found and updated
+        }
+      }
+
+      // Print the updated student data
+      console.log("Updated Student Data:");
+      console.log(students);
 
       //  9. You have several objects representing different parts of a computer (e.g., CPU, RAM, GPU). How can you create a single object that represents the entire computer by combining these parts?
 
@@ -257,6 +369,20 @@
       //     gpu: { type: "NVIDIA GeForce RTX 3080", memory: "10GB GDDR6X" }
 
       //   }
+      const cpu = { type: "Intel i7", speed: "3.2 GHz" };
+      const ram = { type: "Corsair DDR4", size: "16GB" };
+      const gpu = { type: "NVIDIA GeForce RTX 3080", memory: "10GB GDDR6X" };
+
+      // Create a computer object by combining the CPU, RAM, and GPU objects
+      const computer = {
+        cpu: cpu,
+        ram: ram,
+        gpu: gpu,
+      };
+
+      // Print the computer configuration
+      console.log("Computer Configuration:");
+      console.log(computer);
 
       //   10.You have two Maps representing product inventory and customer orders. How can you determine which products are out of stock based on the order data?
 
@@ -291,6 +417,36 @@
       //     { product: "Tablet", quantity: 0 }
 
       //   ]
+      const productInventory = new Map([
+        ["Laptop", 10],
+        ["Phone", 5],
+        ["Tablet", 0],
+      ]);
+
+      const customerOrders = new Map([
+        ["Laptop", 2],
+        ["Phone", 3],
+        ["Tablet", 1],
+      ]);
+
+      // Initialize an array to store out-of-stock products
+      const outOfStockProducts = [];
+
+      // Iterate through the productInventory map
+      productInventory.forEach((inventoryQuantity, productName) => {
+        const orderQuantity = customerOrders.get(productName) || 0;
+
+        if (inventoryQuantity <= orderQuantity) {
+          outOfStockProducts.push({
+            product: productName,
+            quantity: inventoryQuantity,
+          });
+        }
+      });
+
+      // Print the out-of-stock products
+      console.log("Out of Stock Products:");
+      console.log(outOfStockProducts);
     </script>
   </body>
 </html>
